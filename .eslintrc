@@ -1,0 +1,26 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "max-len": [
+      "error", 120, 2, {
+        "ignoreUrls": true,
+        "ignoreComments": false,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ],
+    "newline-before-return": "error",
+    "prettier/prettier": ["error",
+      {
+        "singleQuote": true,
+        "printWidth": 120,
+        "trailingComma": "all"
+      }
+    ]
+  }
+}
