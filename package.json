@@ -1,10 +1,14 @@
 {
   "name": "eslint-plugin-m6web-i18n",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "eslint plugin for generic i18n",
   "author": "M6web",
   "main": "lib/index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/M6Web/eslint-plugin-m6web-i18n.git"
+  },
   "scripts": {
     "build": "babel src --out-dir lib",
     "babel-watch": "babel src --out-dir lib --watch",
