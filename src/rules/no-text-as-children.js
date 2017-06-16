@@ -1,7 +1,7 @@
 module.exports = context => {
   const config = context.settings.i18n;
 
-  if (config.ignoreFiles && new RegExp(config.ignoreFiles).test(context.getFilename())) {
+  if (!config || (config.ignoreFiles && new RegExp(config.ignoreFiles).test(context.getFilename()))) {
     return {};
   }
 

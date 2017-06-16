@@ -4,15 +4,15 @@ module.exports = langsKey => context => {
   let langConfig = [];
   const config = context.settings.i18n;
 
+  if (!config || (config.ignoreFiles && new RegExp(config.ignoreFiles).test(context.getFilename()))) {
+    return {};
+  }
+
   if (config && config[langsKey]) {
     langConfig = config[langsKey].map(({ name, translationPath }) => ({
       name,
       translation: require(`${process.cwd()}/${translationPath}`),
     }));
-  }
-
-  if (config.ignoreFiles && new RegExp(config.ignoreFiles).test(context.getFilename())) {
-    return {};
   }
 
   return {
