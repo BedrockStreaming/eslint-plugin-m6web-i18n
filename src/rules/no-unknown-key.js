@@ -1,3 +1,4 @@
+import appRootPath from 'app-root-path';
 import { getKeyValue, has } from '../utils/utils';
 
 module.exports = langsKey => context => {
@@ -11,7 +12,7 @@ module.exports = langsKey => context => {
   if (config && config[langsKey]) {
     langConfig = config[langsKey].map(({ name, translationPath }) => ({
       name,
-      translation: require(`${process.cwd()}/${translationPath}`),
+      translation: require(`${appRootPath}/${translationPath}`),
     }));
   }
 
