@@ -14,6 +14,16 @@ yarn add -D eslint-plugin-m6web-i18n
 yarn build
 ```
 
+## Bump
+
+To bump we use [mvrsion](https://www.npmjs.com/package/mversion).
+
+example:
+```shell
+yarn mversion -- patch -m
+```
+
+
 ## Rules
 
  * i18n/no-unknown-key: Verify that all translation keys you use are present in your primary translation files.
