@@ -10,7 +10,7 @@ yarn add -D eslint-plugin-m6web-i18n
 
 ## Rules
 
- * i18n/no-unknown-key: Verify that there all translation key you use are present in your primary translation files.
+ * i18n/no-unknown-key: Verify that all translation keys you use are present in your primary translation files.
  * i18n/no-unknown-key-secondary-langs: Same as the previous one. Allow you to have a different error level for secondary languages.
  * i18n/no-text-as-children: Verify that you have no text children in your react code.
  
