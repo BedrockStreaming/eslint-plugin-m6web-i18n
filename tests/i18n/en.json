@@ -1,0 +1,8 @@
+{
+  "basic": "Hello world !",
+  "pluralized": {
+    "one": "All for one",
+    "other": "None for the others"
+  },
+  "interpolated": "Hello %(name)s !"
+}

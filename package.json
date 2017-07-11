@@ -13,7 +13,9 @@
     "build": "babel src --out-dir lib",
     "babel-watch": "babel src --out-dir lib --watch",
     "format": "prettier-eslint --write src/**/*.js",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "test": "mocha --recursive tests",
+    "prepack": "yarn lint && yarn test && yarn build"
   },
   "peerDependencies": {
     "eslint": "^3.19.0"
@@ -29,11 +31,14 @@
     "eslint-plugin-jsx-a11y": "^5.0.1",
     "eslint-plugin-prettier": "^2.0.1",
     "eslint-plugin-react": "^7.0.1",
+    "mocha": "^3.4.2",
     "mversion": "^1.10.1",
     "prettier": "^1.3.0",
-    "prettier-eslint-cli": "4.0.0"
+    "prettier-eslint-cli": "^4.0.0",
+    "sinon": "^2.3.7"
   },
   "dependencies": {
-    "app-root-path": "2.0.1"
+    "app-root-path": "2.0.1",
+    "minimatch": "3.0.4"
   }
 }
