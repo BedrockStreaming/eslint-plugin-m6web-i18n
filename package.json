@@ -15,7 +15,7 @@
     "format": "prettier-eslint --write src/**/*.js",
     "lint": "eslint src/**/*.js",
     "test": "mocha --recursive tests",
-    "prepack": "yarn lint && yarn build"
+    "prepack": "yarn lint && yarn test && yarn build"
   },
   "peerDependencies": {
     "eslint": "^3.19.0"
