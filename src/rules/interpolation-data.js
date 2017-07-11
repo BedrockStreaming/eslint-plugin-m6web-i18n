@@ -4,7 +4,7 @@ const { getKeyValue, get, getLangConfig } = require('../utils/utils');
 module.exports = {
   meta: {
     docs: {
-      description: 'ensures that used translate key is in translation file',
+      description: 'ensures that interpolated translate key have data',
       category: 'Possible errors',
     },
     schema: [

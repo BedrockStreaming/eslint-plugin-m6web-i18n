@@ -47,7 +47,7 @@ You have to add the following lines in your `.eslintrc` file to configure this p
     "i18n/no-unknown-key": "error",
     "i18n/no-unknown-key-secondary-langs": "warn",
     "i18n/no-text-as-children": "error",
-    "interpolation-data": ["error", { "interpolationPattern": "\\{\\.+\\}" }]
+    "i18n/interpolation-data": ["error", { "interpolationPattern": "\\{\\.+\\}" }]
   },
   // The plugin needs jsx feature to be on for 'no-text-as-children' rule
   "parserOptions": {
@@ -78,7 +78,7 @@ You have to add the following lines in your `.eslintrc` file to configure this p
       "ignoreFiles": "**/*.spec.js",
       // If you have pluralization
       "pluralizedKeys": ["one", "other"],
-      // To control de cache TTL (defaults to 500ms)
+      // TTL of the translations file caching (defaults to 500ms)
       "translationsCacheTTL": 300
     }
   }
