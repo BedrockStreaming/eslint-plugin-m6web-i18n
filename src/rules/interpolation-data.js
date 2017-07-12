@@ -21,7 +21,7 @@ module.exports = {
     ],
   },
   create(context) {
-    const config = Object.assign({}, context.settings.i18n, context.options[0]);
+    const config = context.settings.i18n;
 
     if (!config || (config.ignoreFiles && minimatch(context.getFilename(), config.ignoreFiles))) {
       return {};
@@ -48,7 +48,8 @@ module.exports = {
           }
 
           const value = get(translation, key);
-          const interpolationTester = new RegExp(config.interpolationPattern);
+          const [{ interpolationPattern }] = context.options;
+          const interpolationTester = new RegExp(interpolationPattern);
 
           if (value && (!dataNode || dataNode.name === 'undefined') && interpolationTester.test(value)) {
             context.report({
