@@ -24,10 +24,10 @@ exports.getKeyValue = key => {
   return null;
 };
 
+const expireAt = {};
 let langConfig;
-let expireAt = 0;
 exports.getLangConfig = (config, languagesKey) => {
-  if (expireAt <= Date.now() || config.disableCache) {
+  if (!expireAt[languagesKey] || expireAt[languagesKey] <= Date.now() || config.disableCache) {
     langConfig = config[languagesKey].map(({ name, translationPath }) => {
       try {
         const langFile = JSON.parse(fs.readFileSync(path.resolve(`${appRootPath}/${translationPath}`)).toString());
@@ -43,7 +43,7 @@ exports.getLangConfig = (config, languagesKey) => {
         };
       }
     });
-    expireAt = Date.now() + (config.translationsCacheTTL || 500);
+    expireAt[languagesKey] = Date.now() + (config.translationsCacheTTL || 500);
   }
 
   return langConfig;
