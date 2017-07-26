@@ -1,0 +1,8 @@
+{
+  "basic": "Salut le monde !",
+  "pluralized": {
+    "one": "Tout pour moi",
+    "other": "Rien pour les autres"
+  },
+  "interpolated": "Salut %(name)s !"
+}
