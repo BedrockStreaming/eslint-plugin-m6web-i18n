@@ -4,5 +4,9 @@
     "one": "All for one",
     "other": "None for the others"
   },
-  "interpolated": "Hello %(name)s !"
+  "interpolated": "Hello %(name)s !",
+  "pluralizedAndInterpolated": {
+    "one": "I'm the only one",
+    "other": "We are %(number)d"
+  }
 }

@@ -13,7 +13,7 @@
     "build": "babel src --out-dir lib",
     "babel-watch": "babel src --out-dir lib --watch",
     "format": "prettier-eslint --write src/**/*.js",
-    "lint": "eslint src/**/*.js",
+    "lint": "eslint src/**/*.js tests/**/*.js",
     "test": "mocha --recursive tests",
     "prepack": "yarn lint && yarn test && yarn build"
   },

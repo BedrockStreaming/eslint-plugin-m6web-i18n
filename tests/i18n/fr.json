@@ -4,5 +4,9 @@
     "one": "Tout pour moi",
     "other": "Rien pour les autres"
   },
-  "interpolated": "Salut %(name)s !"
+  "interpolated": "Salut %(name)s !",
+  "pluralizedAndInterpolated": {
+    "one": "Je suis tout seul",
+    "other": "Nous sommes %(number)d"
+  }
 }

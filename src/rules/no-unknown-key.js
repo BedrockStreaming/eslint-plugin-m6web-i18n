@@ -1,5 +1,5 @@
 const minimatch = require('minimatch');
-const { getKeyValue, has, getLangConfig } = require('../utils/utils');
+const { getKeyValue, get, has, getLangConfig } = require('../utils/utils');
 
 module.exports = langsKey => ({
   meta: {
@@ -47,6 +47,16 @@ module.exports = langsKey => ({
               node,
               severity: 2,
               message: `'${key}' is missing from '${name}' language`,
+            });
+
+            return;
+          }
+
+          if (typeof countNode === 'undefined' && has(translation, key) && typeof get(translation, key) !== 'string') {
+            context.report({
+              node,
+              severity: 2,
+              message: `'${key}' is not a string in '${name}' language, looks like pluralization value is missing`,
             });
 
             return;

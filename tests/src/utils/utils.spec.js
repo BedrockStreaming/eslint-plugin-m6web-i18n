@@ -42,6 +42,10 @@ describe('utils', () => {
             other: 'None for the others',
           },
           interpolated: 'Hello %(name)s !',
+          pluralizedAndInterpolated: {
+            one: "I'm the only one",
+            other: 'We are %(number)d',
+          },
         },
       },
       {
@@ -53,6 +57,10 @@ describe('utils', () => {
             other: 'Rien pour les autres',
           },
           interpolated: 'Salut %(name)s !',
+          pluralizedAndInterpolated: {
+            one: 'Je suis tout seul',
+            other: 'Nous sommes %(number)d',
+          },
         },
       },
     ];
@@ -66,6 +74,10 @@ describe('utils', () => {
             other: 'Rien pour les autres',
           },
           interpolated: 'Salut %(name)s !',
+          pluralizedAndInterpolated: {
+            one: 'Je suis tout seul',
+            other: 'Nous sommes %(number)d',
+          },
         },
       },
     ];
