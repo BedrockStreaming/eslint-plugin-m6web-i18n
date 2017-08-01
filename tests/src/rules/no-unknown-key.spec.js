@@ -61,5 +61,15 @@ ruleTester.run('m6web-i18n/no-unknown-key', rule, {
         },
       ],
     },
+    {
+      code: 't("pluralized")',
+      settings,
+      errors: [
+        {
+          message: "'pluralized' is not a string in 'en' language, looks like pluralization value is missing",
+          type: 'CallExpression',
+        },
+      ],
+    },
   ],
 });

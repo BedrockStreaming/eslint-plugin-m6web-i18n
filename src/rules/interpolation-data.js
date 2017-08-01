@@ -35,7 +35,7 @@ module.exports = {
           return;
         }
 
-        const [keyNode, dataNode] = node.arguments;
+        const [keyNode, dataNode, countNode] = node.arguments;
         const key = getKeyValue(keyNode);
 
         if (!key) {
@@ -47,11 +47,19 @@ module.exports = {
             return;
           }
 
-          const value = get(translation, key);
+          const isPluralized = !!countNode && Array.isArray(config.pluralizedKeys);
+          const translateValue = get(translation, key);
           const [{ interpolationPattern }] = context.options;
           const interpolationTester = new RegExp(interpolationPattern);
 
-          if (value && (!dataNode || dataNode.name === 'undefined') && interpolationTester.test(value)) {
+          let values;
+          if (isPluralized) {
+            values = Object.values(translateValue);
+          } else {
+            values = translateValue ? [translateValue] : [];
+          }
+
+          if ((!dataNode || dataNode.name === 'undefined') && values.some(value => interpolationTester.test(value))) {
             context.report({
               node,
               severity: 2,
@@ -61,7 +69,7 @@ module.exports = {
             return;
           }
 
-          if (value && dataNode && dataNode.name !== 'undefined' && !interpolationTester.test(value)) {
+          if (dataNode && dataNode.name !== 'undefined' && !values.some(value => interpolationTester.test(value))) {
             context.report({
               node,
               severity: 2,

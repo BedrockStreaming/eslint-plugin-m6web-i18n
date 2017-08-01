@@ -2,7 +2,8 @@
   "extends": ["airbnb", "prettier"],
   "plugins": ["prettier"],
   "env": {
-    "node": true
+    "node": true,
+    "mocha": true
   },
   "rules": {
     "max-len": [
