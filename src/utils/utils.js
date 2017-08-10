@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const appRootPath = require('app-root-path');
 
 const recursiveGet = (object, keys, index) => {
   if (keys.length - index === 1) {
@@ -31,7 +30,7 @@ exports.getLangConfig = (config, languagesKey) => {
   if (!expireAt[languagesKey] || expireAt[languagesKey] <= Date.now() || config.disableCache) {
     langConfig[languagesKey] = config[languagesKey].map(({ name, translationPath }) => {
       try {
-        const langFile = JSON.parse(fs.readFileSync(path.resolve(`${appRootPath}/${translationPath}`)).toString());
+        const langFile = JSON.parse(fs.readFileSync(path.resolve(`${process.cwd()}/${translationPath}`)).toString());
 
         return {
           name,
