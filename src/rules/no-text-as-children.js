@@ -6,7 +6,17 @@ module.exports = {
       description: 'ensures that no plain text is used in JSX components',
       category: 'Possible errors',
     },
-    schema: [],
+    schema: [
+      {
+        type: 'object',
+        properties: {
+          ignorePattern: {
+            type: 'string',
+          },
+        },
+        additionalProperties: false,
+      },
+    ],
   },
   create(context) {
     const config = context.settings.i18n;
@@ -15,12 +25,15 @@ module.exports = {
       return {};
     }
 
+    const [options] = context.options;
+    const { ignorePattern } = options || {};
+
     return {
       JSXElement(node) {
         node.children.forEach(child => {
           if (child.type === 'Literal') {
             const text = child.raw.trim().replace('\\n', '');
-            if (text.length) {
+            if (text.length && (!ignorePattern || !new RegExp(ignorePattern).test(text))) {
               context.report({ node: child, message: `Untranslated text '${text}'` });
             }
           }
