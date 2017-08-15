@@ -44,10 +44,10 @@ You have to add the following lines in your `.eslintrc` file to configure this p
   ],
   // Specify rules severity
   "rules": {
-    "i18n/no-unknown-key": "error",
-    "i18n/no-unknown-key-secondary-langs": "warn",
-    "i18n/no-text-as-children": "error",
-    "i18n/interpolation-data": ["error", { "interpolationPattern": "\\{\\.+\\}" }]
+    "m6web-i18n/no-unknown-key": "error",
+    "m6web-i18n/no-unknown-key-secondary-langs": "warn",
+    "m6web-i18n/no-text-as-children": "error",
+    "m6web-i18n/interpolation-data": ["error", { "interpolationPattern": "\\{\\.+\\}" }]
   },
   // The plugin needs jsx feature to be on for 'no-text-as-children' rule
   "parserOptions": {
