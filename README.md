@@ -40,7 +40,7 @@ You have to add the following lines in your `.eslintrc` file to configure this p
 ```js
   // Declare the plugin
   "plugins": [
-    "i18n"
+    "m6web-i18n"
   ],
   // Specify rules severity
   "rules": {
