@@ -34,7 +34,10 @@ module.exports = {
           if (child.type === 'Literal') {
             const text = child.raw.trim().replace('\\n', '');
             if (text.length && (!ignorePattern || !new RegExp(ignorePattern).test(text))) {
-              context.report({ node: child, message: `Untranslated text '${text}'` });
+              context.report({
+                node: child,
+                message: `Untranslated text '${text}'`,
+              });
             }
           }
         });
