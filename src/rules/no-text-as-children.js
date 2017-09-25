@@ -32,7 +32,7 @@ module.exports = {
       JSXElement(node) {
         node.children.forEach(child => {
           if (child.type === 'Literal') {
-            const text = child.raw.trim().replace('\\n', '');
+            const text = child.value.trim().replace('\\n', '');
             if (text.length && (!ignorePattern || !new RegExp(ignorePattern).test(text))) {
               context.report({
                 node: child,
