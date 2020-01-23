@@ -21,7 +21,7 @@ module.exports = {
   },
   create(context) {
     const [options] = context.options;
-    const { attributes } = options || {};
+    const { attributes = [] } = options || {};
 
     return {
       JSXAttribute(node) {

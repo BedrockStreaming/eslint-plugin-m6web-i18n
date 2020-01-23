@@ -40,6 +40,18 @@ ruleTester.run('m6web-i18n/no-text-as-attribute', rule, {
       settings,
       options,
     },
+    {
+      code: '<div alt="without option">{t("basic")}</div>',
+      parserOptions,
+      settings,
+      options: [],
+    },
+    {
+      code: '<div alt="empty option">{t("basic")}</div>',
+      parserOptions,
+      settings,
+      options: [{}],
+    },
   ],
   invalid: [
     {
