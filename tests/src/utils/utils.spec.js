@@ -22,6 +22,24 @@ describe('utils', () => {
     assert.ok(has(object, 'foo.bar'));
   });
 
+  it('should has key with no separator', () => {
+    const object = {
+      'foo.bar': 'foobar',
+    };
+
+    assert.ok(has(object, 'foo.bar', false));
+  });
+
+  it('should has key with custom separator', () => {
+    const object = {
+      foo: {
+        bar: 'foobar',
+      },
+    };
+
+    assert.ok(has(object, 'foo::bar', '::'));
+  });
+
   it('should getLangConfig', () => {
     const config = {
       foo: [
