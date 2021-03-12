@@ -48,7 +48,7 @@ module.exports = {
           }
 
           const isPluralized = !!countNode && Array.isArray(config.pluralizedKeys);
-          const translateValue = get(translation, key);
+          const translateValue = get(translation, key, config.keySeparator);
           const [{ interpolationPattern }] = context.options;
           const interpolationTester = new RegExp(interpolationPattern);
 

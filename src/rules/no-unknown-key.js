@@ -42,7 +42,7 @@ module.exports = langsKey => ({
             return;
           }
 
-          if (typeof countNode === 'undefined' && !has(translation, key)) {
+          if (typeof countNode === 'undefined' && !has(translation, key, config.keySeparator)) {
             context.report({
               node,
               severity: 2,
@@ -52,7 +52,7 @@ module.exports = langsKey => ({
             return;
           }
 
-          if (typeof countNode === 'undefined' && has(translation, key) && typeof get(translation, key) !== 'string') {
+          if (typeof countNode === 'undefined' && has(translation, key, config.keySeparator) && typeof get(translation, key, config.keySeparator) !== 'string') {
             context.report({
               node,
               severity: 2,

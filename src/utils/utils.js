@@ -9,9 +9,9 @@ const recursiveGet = (object, keys, index) => {
   return object[keys[index]] ? recursiveGet(object[keys[index]], keys, index + 1) : undefined;
 };
 
-exports.has = (object, key) => !!recursiveGet(object, key.split('.'), 0);
+exports.has = (object, key, separator = '.') => !!recursiveGet(object, key.split(separator), 0);
 
-exports.get = (object, key) => recursiveGet(object, key.split('.'), 0);
+exports.get = (object, key, separator = '.') => recursiveGet(object, key.split(separator), 0);
 
 exports.getKeyValue = key => {
   if (key.type === 'Literal') {
